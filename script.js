@@ -1,16 +1,16 @@
 // Assignment code here
+
+//Assigns variables that hold the characters of the different criteria
 var lowercaseChar = "abcdefghijklmnopqrstuvwxyz";
 var uppercaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numberChar = "0123456789";
 var specialChar = "!@#$%^&*()_-+={}[];:'`~<,>.?/|"
 
 
-
-
-
+//Function that actually generates the password
 function generatePassword() {
  
-
+//variables to store the user input based on the prompt
   var passLength = prompt("Choose a length for your password");
 
   var passSpecialChar = confirm("Click OK to include special characters");
@@ -26,6 +26,8 @@ function generatePassword() {
 
   passLength = parseInt(passLength);
 
+ 
+ //If statement that checks on the various criteria
   if (passLength <= 128 && passLength >= 8 && passSpecialChar === true ) {
     criteria += specialChar;
 
@@ -45,6 +47,8 @@ function generatePassword() {
 
   console.log(criteria)
 
+ 
+ //For loop that generates random password
   for(var i = 0; i < passLength; i++){
     password += criteria[Math.floor(Math.random() * criteria.length)];
   }
